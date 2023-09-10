@@ -10,7 +10,7 @@ with open(os.path.join(here, 'requirements.txt'), 'r') as f:
 
 setup(
     name="chatgpt_to_powerpoint",
-    version="0.1.0",
+    version="0.1.1",
     packages=find_packages(),
     description = 'create automatically powerpoint with chatgpt',
     install_requires=requirements,
