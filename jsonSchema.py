@@ -25,6 +25,10 @@ json_schema = {
             "type": "string",
             "description": "Title of the slide."
           },
+          "subtitle": {
+            "type": "string",
+            "description": "Subtitle of the slide (ONLY for Title Slide layout)."
+          },
           "title_left": {
             "type": "string",
             "description": "Title for the left side of the slide (ONLY for Comparison layout)."
