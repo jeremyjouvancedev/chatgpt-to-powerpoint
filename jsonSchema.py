@@ -16,16 +16,39 @@ json_schema = {
       "items": {
         "type": "object",
         "properties": {
+          "layout": {
+            "type": "string",
+            "description": "Layout of the slide.",
+            "enum": ["Title Slide", "Title and Content", "Section Header", "Two Content", "Comparison", "Blank", "Content with Caption", "Picture with Caption"]
+          },
           "title": {
             "type": "string",
             "description": "Title of the slide."
           },
           "content": {
             "type": "array",
-            "description": "List of content points or paragraphs for the slide.",
+            "description": "List of content points or paragraphs for the slide (ONLY for Title and Content layout).",
             "items": {
               "type": "string"
             }
+          },
+          "left_content": {
+            "type": "array",
+            "description": "List of content points or paragraphs for the left side of the slide (ONLY for Two Content or Comparison layouts).",
+            "items": {
+              "type": "string"
+            }
+          },
+          "right_content": {
+            "type": "array",
+            "description": "List of content points or paragraphs for the right side of the slide (ONLY for Two Content or Comparison layouts).",
+            "items": {
+              "type": "string"
+            }
+          },
+          "caption": {
+            "type": "string",
+            "description": "Caption for the slide (ONLY for Content with Caption layout)."
           },
           "notes": {
             "type": "string",
@@ -33,7 +56,7 @@ json_schema = {
           },
           "images": {
             "type": "array",
-            "description": "List of image text that can be usefull for text-to-image engine.",
+            "description": "List of image URLs or paths for the slide.",
             "items": {
               "type": "string"
             }
@@ -56,7 +79,7 @@ json_schema = {
             }
           }
         },
-        "required": ["title", "content"]
+        "required": ["layout", "title"]
       }
     }
   },
