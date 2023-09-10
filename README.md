@@ -17,8 +17,8 @@ This script allows you to generate PowerPoint presentations using ChatGPT. It ta
 1. Clone this repository:
 
     ```bash    
-    git clone <repository-url>
-    cd <repository-directory>
+    git clone https://github.com/jeremyjouvancedev/chatgpt-to-powerpoint.git
+    cd chatgpt-to-powerpoint
     ```
 
 2. Install the required packages:
