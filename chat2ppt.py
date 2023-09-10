@@ -35,12 +35,26 @@ if __name__ == "__main__":
         help="Number of slides in the presentation. Default is 10.",
     )
     parser.add_argument(
+        "--outputFolder",
+        type=str,
+        default=".",
+        help="Output Folder. Default is '.'.",
+    )
+    parser.add_argument(
         "--output",
         type=str,
         default="presentation.pptx",
         help="Output PowerPoint file name. Default is presentation.pptx.",
     )
+    
+    parser.add_argument(
+        "--json",
+        type=str,
+        default=None,
+        help="Reload from a json file.",
+    )
+
     args = parser.parse_args()
 
     generator = PowerPointGenerator(args.modelType, args.model)
-    generator.generate_slides(args.slides, args.topic, args.output)
+    generator.generate_slides(args.slides, args.topic, args.outputFolder, args.output, load_json=args.json)

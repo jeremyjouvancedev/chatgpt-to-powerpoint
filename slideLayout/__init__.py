@@ -1,11 +1,16 @@
 def clean_text(text):
     return text
 
+def get_layout_id(prs, name):
+    for idx, l in enumerate(prs.slide_layouts):
+        #print(idx, l, l.name)
+        if l.name == name:
+            return idx
 
 class SlideLayouts:
     @staticmethod
     def title_and_content(prs, slide_data):
-        slide_layout = prs.slide_layouts[1]  # 'Title and Content' layout
+        slide_layout = prs.slide_layouts[get_layout_id(prs, "Title and Content")]  # 'Title and Content' layout
         slide = prs.slides.add_slide(slide_layout)
 
         # Set slide title
@@ -19,7 +24,7 @@ class SlideLayouts:
 
     @staticmethod
     def title_slide(prs, slide_data):
-        slide_layout = prs.slide_layouts[0]  # 'Title and Content' layout
+        slide_layout = prs.slide_layouts[get_layout_id(prs, "Title Slide")]  # 'Title and Content' layout
         slide = prs.slides.add_slide(slide_layout)
 
         # Set slide title
@@ -34,7 +39,7 @@ class SlideLayouts:
         ):
             SlideLayouts.title_and_content(prs, slide_data)
         else:
-            slide_layout = prs.slide_layouts[3]
+            slide_layout = prs.slide_layouts[get_layout_id(prs, "Two Content")]
             slide = prs.slides.add_slide(slide_layout)
 
             # Set slide title
@@ -54,8 +59,16 @@ class SlideLayouts:
 
     @staticmethod
     def comparison(prs, slide_data):
+        if (
+            len(slide_data.get("content", [])) > 0
+            and len(slide_data.get("left_content", [])) == 0
+            and len(slide_data.get("right_content", [])) == 0
+        ):
+            return SlideLayouts.title_and_content(prs, slide_data)
+
+
         slide_layout = prs.slide_layouts[
-            3
+            get_layout_id(prs, "Comparison")
         ]  # Assuming 'Comparison' layout is at index 3
         slide = prs.slides.add_slide(slide_layout)
 
@@ -63,13 +76,13 @@ class SlideLayouts:
         slide.shapes.title.text = clean_text(slide_data["title"])
 
         # Add content to the left placeholder
-        left_content_shape = slide.placeholders[1]
+        left_content_shape = slide.placeholders[2]
         for point in slide_data["left_content"]:
             p = left_content_shape.text_frame.add_paragraph()
             p.text = clean_text(point)
 
         # Add content to the right placeholder
-        right_content_shape = slide.placeholders[2]
+        right_content_shape = slide.placeholders[3]
         for point in slide_data["right_content"]:
             p = right_content_shape.text_frame.add_paragraph()
             p.text = clean_text(point)
@@ -77,7 +90,7 @@ class SlideLayouts:
     @staticmethod
     def content_with_caption(prs, slide_data):
         slide_layout = prs.slide_layouts[
-            4
+            get_layout_id(prs, "Content with Caption")
         ]  # Assuming 'Content with Caption' layout is at index 4
         slide = prs.slides.add_slide(slide_layout)
 
@@ -85,11 +98,34 @@ class SlideLayouts:
         slide.shapes.title.text = clean_text(slide_data["title"])
 
         # Add content
-        content_shape = slide.placeholders[2]
+        content_shape = slide.placeholders[1]
         for point in slide_data["content"]:
             p = content_shape.text_frame.add_paragraph()
             p.text = clean_text(point)
 
         # Add caption
-        caption_shape = slide.placeholders[4]
-        caption_shape.text = clean_text(slide_data["caption"])
+        caption_shape = slide.placeholders[0]
+        caption_shape.text = clean_text(slide_data["title"])
+
+    @staticmethod
+    def blank(prs, slide_data):
+        slide_layout = prs.slide_layouts[
+            get_layout_id(prs, "Blank")
+        ]  # Assuming 'Content with Caption' layout is at index 4
+        slide = prs.slides.add_slide(slide_layout)
+
+    @staticmethod
+    def picture_with_caption(prs, slide_data):
+        slide_layout = prs.slide_layouts[
+            get_layout_id(prs, "Picture with Caption")
+        ]  # Assuming 'Content with Caption' layout is at index 4
+        slide = prs.slides.add_slide(slide_layout)
+
+        content_shape = slide.placeholders[0]
+        p = content_shape.text_frame.add_paragraph()
+        p.text = slide_data["title"]    
+
+        # Add content
+        content_shape = slide.placeholders[2]
+        p = content_shape.text_frame.add_paragraph()
+        p.text = clean_text(slide_data["caption"])

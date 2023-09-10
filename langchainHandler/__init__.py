@@ -18,10 +18,10 @@ class LangChainHandler:
             chat_model = ChatOpenAI(model_name=self.model_name, verbose=True)
             prompt = ChatPromptTemplate.from_messages(
                 [
-                    ("system", "You are a world class Powerpoint generator."),
+                    ("system", "You are a world class Powerpoint generator. think like a senior CPG brand manager and market researcher. "),
                     (
                         "human",
-                        f"Generate a {nb_of_slides} slide Powerpoint presentation for the topic: {{input}}",
+                        f"Use your knowledge to create a {nb_of_slides} slide Powerpoint presentation for the topic: {{input}}",
                     ),
                     ("human", "Tip: Make sure to answer in the correct format"),
                 ]
