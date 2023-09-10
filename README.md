@@ -21,7 +21,13 @@ This script allows you to generate PowerPoint presentations using ChatGPT. It ta
     cd chatgpt-to-powerpoint
     ```
 
-2. Install the required packages:
+2. Create a .env file
+    ```bash
+    touch .env
+    ```
+    Add `OPENAI_API_KEY` with your key to the `.env` file
+
+3. Install the required packages:
     ```bash
     pip install -r requirements.txt
     ```
