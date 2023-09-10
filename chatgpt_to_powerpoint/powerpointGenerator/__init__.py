@@ -5,8 +5,8 @@ from pptx import Presentation
 from pptx.util import Inches
 
 
-from langchainHandler import LangChainHandler
-from slideLayout import SlideLayouts
+from chatgpt_to_powerpoint.langchainHandler import LangChainHandler
+from chatgpt_to_powerpoint.slideLayout import SlideLayouts
 
 class PowerPointGenerator:
     def __init__(self, model_type='ChatOpenAI', model_name='gpt-3.5-turbo'):

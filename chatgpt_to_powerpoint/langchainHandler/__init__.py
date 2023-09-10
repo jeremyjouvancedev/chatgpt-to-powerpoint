@@ -6,7 +6,7 @@ from langchain.chains.openai_functions import (
     create_structured_output_chain,
 )
 from langchain.prompts import ChatPromptTemplate, HumanMessagePromptTemplate
-from jsonSchema import json_schema
+from chatgpt_to_powerpoint.jsonSchema import json_schema
 
 
 class LangChainHandler:

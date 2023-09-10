@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()  # take environment variables from .env.
 
-from powerpointGenerator import PowerPointGenerator
+from chatgpt_to_powerpoint.powerpointGenerator import PowerPointGenerator
 
 
 if __name__ == "__main__":
