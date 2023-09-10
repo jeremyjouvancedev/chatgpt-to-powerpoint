@@ -43,3 +43,5 @@ Arguments:
 - `topic`: The topic for which you want to generate the presentation.
 - `--slides`: (Optional) Number of slides in the presentation. Default is 10.
 - `--output`: (Optional) Name of the output PowerPoint file. Default is presentation.pptx.
+- `--modelType`: (Optional) Model type to use for generating the presentation. Default is ChatOpenAI.
+- `--model`: (Optional) Model to use for generating the presentation. Default is gpt-3.5-turbo.
