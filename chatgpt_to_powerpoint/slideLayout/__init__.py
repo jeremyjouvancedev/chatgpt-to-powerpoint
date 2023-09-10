@@ -8,6 +8,8 @@ def get_layout_id(prs, name):
             return idx
         
 def add_note(slide, note):
+    if not note:
+        return
     # Add notes to the slide
     notes_slide = slide.notes_slide
     notes_slide.notes_text_frame.text = note
