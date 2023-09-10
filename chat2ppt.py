@@ -54,6 +54,13 @@ if __name__ == "__main__":
         help="Reload from a json file.",
     )
 
+    parser.add_argument(
+        "--openaiApiKey",
+        type=str,
+        default=None,
+        help="OpenAi Api key.",
+    )
+
     args = parser.parse_args()
 
     generator = PowerPointGenerator(args.modelType, args.model)

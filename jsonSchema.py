@@ -25,6 +25,14 @@ json_schema = {
             "type": "string",
             "description": "Title of the slide."
           },
+          "title_left": {
+            "type": "string",
+            "description": "Title for the left side of the slide (ONLY for Comparison layout)."
+          },
+          "title_right": {
+            "type": "string",
+            "description": "Title for the right side of the slide (ONLY for Comparison layout)."
+          },
           "content": {
             "type": "array",
             "description": "List of content points or paragraphs for the slide (ONLY for Title and Content layout).",

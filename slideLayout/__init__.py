@@ -75,14 +75,25 @@ class SlideLayouts:
         # Set slide title
         slide.shapes.title.text = clean_text(slide_data["title"])
 
+        # Add title to the left placeholder
+        left_content_shape = slide.placeholders[1]
+        p = left_content_shape.text_frame.add_paragraph()
+        p.text = clean_text(slide_data.get('title_left'))
+
+
         # Add content to the left placeholder
         left_content_shape = slide.placeholders[2]
         for point in slide_data["left_content"]:
             p = left_content_shape.text_frame.add_paragraph()
             p.text = clean_text(point)
 
-        # Add content to the right placeholder
+        # Add title to the rigth placeholder
         right_content_shape = slide.placeholders[3]
+        p = right_content_shape.text_frame.add_paragraph()
+        p.text = clean_text(slide_data.get('title_right'))
+
+        # Add content to the right placeholder
+        right_content_shape = slide.placeholders[4]
         for point in slide_data["right_content"]:
             p = right_content_shape.text_frame.add_paragraph()
             p.text = clean_text(point)

@@ -41,6 +41,7 @@ python <script_name>.py "Your Topic Here" --slides 5 --output output_filename.pp
 
 Arguments:
 - `topic`: The topic for which you want to generate the presentation.
+- `--openaiApiKey`: (Optional) OpenAi Api Key.
 - `--slides`: (Optional) Number of slides in the presentation. Default is 10.
 - `--output`: (Optional) Name of the output PowerPoint file. Default is presentation.pptx.
 - `--modelType`: (Optional) Model type to use for generating the presentation. Default is ChatOpenAI.
