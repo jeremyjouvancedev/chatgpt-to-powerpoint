@@ -23,7 +23,7 @@ This script allows you to generate PowerPoint presentations using ChatGPT. It ta
 
 2. Install the required packages:
     ```bash
-    pip install python-pptx python-dotenv langchain
+    pip install -r requirements.txt
     ```
 # Usage
 
