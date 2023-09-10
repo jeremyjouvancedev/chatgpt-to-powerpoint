@@ -12,6 +12,18 @@ This script allows you to generate PowerPoint presentations using ChatGPT. It ta
 - Required Python packages: python-pptx, dotenv, langchain
 - A .env file with necessary environment variables for langchain.
 
+# Simple Usage
+
+1. Install the package
+    ```bash
+    pip install chatgpt-to-powerpoint
+    ```
+2. Call the Package
+    ```bash
+    python -m chatgpt_to_powerpoint YOUR_POWERPOINT_SUBJECT --outputFolder $HOME --openaiApiKey sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    ```
+
+
 # Installation
 
 1. Clone this repository:
