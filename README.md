@@ -46,3 +46,16 @@ Arguments:
 - `--modelType`: (Optional) Model type to use for generating the presentation. Default is ChatOpenAI.
 - `--model`: (Optional) Model to use for generating the presentation. Default is gpt-3.5-turbo.
 - `--json`: (Optional) Reload json slides representation.
+
+
+# Next Improvements
+
+- Get data from Web instead of chatgpt base knowledge
+- Insert royalty free images for Caption Slides
+- Automatique Image Generation for Caption Slides
+- Can Have mutliple Agent Prompt profiles (AKA persona)
+- Can specify a Design template
+- Add the ability to insert Hyperlinks / videos
+- Multilingual Support
+- Analytics on slides (Estamed time, engagement)
+- Fine Tuned model for presentation generation
